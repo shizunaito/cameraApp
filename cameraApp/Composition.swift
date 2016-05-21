@@ -49,8 +49,10 @@ class Composition: NSObject {
         try! compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAssetTrack2.timeRange.duration), ofTrack: videoAssetTrack2, atTime: videoAssetTrack1.timeRange.duration)
         try! compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, audioAssetTrack2.timeRange.duration), ofTrack: audioAssetTrack2, atTime: audioAssetTrack1.timeRange.duration)
         
-//        try! compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAssetTrack3.timeRange.duration), ofTrack: videoAssetTrack3, atTime: videoAssetTrack2.timeRange.duration)
-//        try! compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, audioAssetTrack3.timeRange.duration), ofTrack: audioAssetTrack3, atTime: audioAssetTrack2.timeRange.duration)
+        let timeDuration = CMTimeAdd(videoAssetTrack1.timeRange.duration, videoAssetTrack2.timeRange.duration)
+        
+        try! compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAssetTrack3.timeRange.duration), ofTrack: videoAssetTrack3, atTime: timeDuration)
+        try! compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, audioAssetTrack3.timeRange.duration), ofTrack: audioAssetTrack3, atTime: timeDuration)
         
         // 5
         let mutableVideoCompositionInstruction1 = AVMutableVideoCompositionInstruction()
@@ -68,16 +70,16 @@ class Composition: NSObject {
         let videoLayerInstruction2 = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionVideoTrack)
         mutableVideoCompositionInstruction2.layerInstructions = [videoLayerInstruction2]
         
-//        let mutableVideoCompositionInstruction3 = AVMutableVideoCompositionInstruction()
-//        mutableVideoCompositionInstruction3.timeRange = CMTimeRangeMake(videoAssetTrack2.timeRange.duration, CMTimeAdd(videoAssetTrack2.timeRange.duration, videoAssetTrack3.timeRange.duration))
-//        mutableVideoCompositionInstruction3.backgroundColor = UIColor.blackColor().CGColor
+        let mutableVideoCompositionInstruction3 = AVMutableVideoCompositionInstruction()
+        mutableVideoCompositionInstruction3.timeRange = CMTimeRangeMake(videoAssetTrack2.timeRange.duration, CMTimeAdd(timeDuration, videoAssetTrack3.timeRange.duration))
+        mutableVideoCompositionInstruction3.backgroundColor = UIColor.blackColor().CGColor
         
-//        let videoLayerInstruction3 = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionVideoTrack)
-//        mutableVideoCompositionInstruction3.layerInstructions = [videoLayerInstruction3]
+        let videoLayerInstruction3 = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionVideoTrack)
+        mutableVideoCompositionInstruction3.layerInstructions = [videoLayerInstruction3]
         
         // 6
         let mutableVideoComposition = AVMutableVideoComposition()
-        mutableVideoComposition.instructions = [mutableVideoCompositionInstruction1, mutableVideoCompositionInstruction2 /*, mutableVideoCompositionInstruction3*/]
+        mutableVideoComposition.instructions = [mutableVideoCompositionInstruction1, mutableVideoCompositionInstruction2, mutableVideoCompositionInstruction3]
         
         // 7
         let audioMixInputParameters = AVMutableAudioMixInputParameters(track: compositionAudioTrack)
@@ -105,7 +107,7 @@ class Composition: NSObject {
          */
         naturalSize1 = videoAssetTrack1.naturalSize
         naturalSize2 = videoAssetTrack2.naturalSize
-//        naturalSize3 = videoAssetTrack3.naturalSize
+        naturalSize3 = videoAssetTrack3.naturalSize
         //}
         
         let renderWidth = max(naturalSize1.width, naturalSize2.width, naturalSize3.width)
