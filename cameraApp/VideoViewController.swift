@@ -92,8 +92,6 @@ class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegat
                 appDelegate.url2 = filePath
             } else if index == 3 {
                 appDelegate.url3 = filePath
-            } else if index == 4 {
-                appDelegate.SumUrl = filePath
             }
             
             fileOutput.startRecordingToOutputFileURL(fileURL, recordingDelegate: self)
