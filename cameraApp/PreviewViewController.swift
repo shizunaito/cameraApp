@@ -25,18 +25,20 @@ class PreviewViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if self.createCount == 0 {
-            let comp :Composition = Composition()
 
-            comp.url1 = self.appDelegate.url1
-            comp.url2 = self.appDelegate.url2
-            comp.url3 = self.appDelegate.url3
+            let path0 = self.appDelegate.introUrl
+            let path1 = self.appDelegate.url1
+            let path2 = self.appDelegate.url2
+            let path3 = self.appDelegate.url3
+
             self.createCount = 1
-            comp.create({(url: NSURL) -> Void in
+            Composition.run([path0!, path1!, path2!, path3!], handler: {(url: NSURL) -> Void in
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     let vc: MPMoviePlayerViewController = MPMoviePlayerViewController(contentURL: url)
                     self.presentMoviePlayerViewControllerAnimated(vc)
                 })
             })
+
         } else {
             let alertController = UIAlertController(title: "保存完了", message: "動画を保存しました", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "はい", style: .Default,

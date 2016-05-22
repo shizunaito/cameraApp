@@ -101,11 +101,19 @@ class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegat
             self.isRecording = true
             self.changeButtonColor(self.startButton, color: UIColor.grayColor())
             
-            timer = NSTimer.scheduledTimerWithTimeInterval(3.0,
+            if index == 0 {
+                timer = NSTimer.scheduledTimerWithTimeInterval(2.0,
+                                                               target: self,
+                                                               selector: #selector(self.threeSecondsLater),
+                                                               userInfo: nil,
+                                                               repeats: false)
+            } else {
+                timer = NSTimer.scheduledTimerWithTimeInterval(5.0,
                                                            target: self,
                                                            selector: #selector(self.threeSecondsLater),
                                                            userInfo: nil,
-                                                           repeats: false)
+                                                       repeats: false)
+            }
         }
     }
     

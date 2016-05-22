@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		05128A641CF0174000EA4EC2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05128A631CF0174000EA4EC2 /* VideoViewController.swift */; };
-		05128A671CF0232500EA4EC2 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05128A661CF0232500EA4EC2 /* Composition.swift */; };
 		05128A691CF0241000EA4EC2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05128A681CF0241000EA4EC2 /* PreviewViewController.swift */; };
+		055272CB1CF1B83100A9BC02 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055272CA1CF1B83100A9BC02 /* Composition.swift */; };
 		600BC4EA1CED6F1A00581F5F /* itemInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4E91CED6F1A00581F5F /* itemInfoController.swift */; };
 		600BC4EC1CED711200581F5F /* introVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4EB1CED711200581F5F /* introVideoController.swift */; };
 		600BC4EE1CED79B500581F5F /* PointOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4ED1CED79B500581F5F /* PointOneController.swift */; };
@@ -18,7 +18,6 @@
 		600BC4F41CED7B0600581F5F /* PointTwoVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4F31CED7B0600581F5F /* PointTwoVideoController.swift */; };
 		600BC4F61CED7B4A00581F5F /* PointThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4F51CED7B4A00581F5F /* PointThreeController.swift */; };
 		600BC4F81CED7B7A00581F5F /* PointThreeVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4F71CED7B7A00581F5F /* PointThreeVideoController.swift */; };
-		600BC4FA1CED7BF300581F5F /* SummalyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4F91CED7BF300581F5F /* SummalyController.swift */; };
 		6052B4F71CE3289F007C504D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052B4F61CE3289F007C504D /* AppDelegate.swift */; };
 		6052B4F91CE3289F007C504D /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052B4F81CE3289F007C504D /* firstViewController.swift */; };
 		6052B4FC1CE3289F007C504D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6052B4FA1CE3289F007C504D /* Main.storyboard */; };
@@ -48,8 +47,8 @@
 
 /* Begin PBXFileReference section */
 		05128A631CF0174000EA4EC2 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
-		05128A661CF0232500EA4EC2 /* Composition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		05128A681CF0241000EA4EC2 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		055272CA1CF1B83100A9BC02 /* Composition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		600BC4E91CED6F1A00581F5F /* itemInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemInfoController.swift; sourceTree = "<group>"; };
 		600BC4EB1CED711200581F5F /* introVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = introVideoController.swift; sourceTree = "<group>"; };
 		600BC4ED1CED79B500581F5F /* PointOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointOneController.swift; sourceTree = "<group>"; };
@@ -58,7 +57,6 @@
 		600BC4F31CED7B0600581F5F /* PointTwoVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTwoVideoController.swift; sourceTree = "<group>"; };
 		600BC4F51CED7B4A00581F5F /* PointThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointThreeController.swift; sourceTree = "<group>"; };
 		600BC4F71CED7B7A00581F5F /* PointThreeVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointThreeVideoController.swift; sourceTree = "<group>"; };
-		600BC4F91CED7BF300581F5F /* SummalyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummalyController.swift; sourceTree = "<group>"; };
 		6052B4F31CE3289F007C504D /* cameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6052B4F61CE3289F007C504D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6052B4F81CE3289F007C504D /* firstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				600BC4EF1CED7A5D00581F5F /* PointOneVideoController.swift */,
 				600BC4F31CED7B0600581F5F /* PointTwoVideoController.swift */,
 				600BC4F71CED7B7A00581F5F /* PointThreeVideoController.swift */,
-				600BC4F91CED7BF300581F5F /* SummalyController.swift */,
 			);
 			name = VideoViews;
 			sourceTree = "<group>";
@@ -127,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				05128A631CF0174000EA4EC2 /* VideoViewController.swift */,
-				05128A661CF0232500EA4EC2 /* Composition.swift */,
+				055272CA1CF1B83100A9BC02 /* Composition.swift */,
 				05128A681CF0241000EA4EC2 /* PreviewViewController.swift */,
 			);
 			name = MakeVideo;
@@ -322,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055272CB1CF1B83100A9BC02 /* Composition.swift in Sources */,
 				600BC4EC1CED711200581F5F /* introVideoController.swift in Sources */,
 				600BC4EE1CED79B500581F5F /* PointOneController.swift in Sources */,
 				6052B4F91CE3289F007C504D /* firstViewController.swift in Sources */,
@@ -331,10 +329,8 @@
 				600BC4F81CED7B7A00581F5F /* PointThreeVideoController.swift in Sources */,
 				600BC4F21CED7A9E00581F5F /* PointTwoController.swift in Sources */,
 				05128A691CF0241000EA4EC2 /* PreviewViewController.swift in Sources */,
-				05128A671CF0232500EA4EC2 /* Composition.swift in Sources */,
 				600BC4F41CED7B0600581F5F /* PointTwoVideoController.swift in Sources */,
 				600BC4F61CED7B4A00581F5F /* PointThreeController.swift in Sources */,
-				600BC4FA1CED7BF300581F5F /* SummalyController.swift in Sources */,
 				6052B4F71CE3289F007C504D /* AppDelegate.swift in Sources */,
 				600BC4F01CED7A5D00581F5F /* PointOneVideoController.swift in Sources */,
 			);
