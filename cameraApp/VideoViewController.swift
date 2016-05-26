@@ -84,35 +84,30 @@ class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegat
             let filePath : String = "\(documentsDirectory)/video\(self.index).mp4"
             let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
             
-            if index == 0 {
-                appDelegate.introUrl = filePath
-            } else if index == 1 {
+            
+            switch index {
+            case 1:
                 appDelegate.url1 = filePath
-            } else if index == 2 {
+            case 2:
                 appDelegate.url2 = filePath
-            } else if index == 3 {
+            case 3:
                 appDelegate.url3 = filePath
+            default:
+                print("Index is not defined.")
             }
             
             fileOutput.startRecordingToOutputFileURL(fileURL, recordingDelegate: self)
             
             self.isRecording = true
             self.changeButtonColor(self.startButton, color: UIColor.grayColor())
-            
-            if index == 0 {
-                timer = NSTimer.scheduledTimerWithTimeInterval(2.0,
-                                                               target: self,
-                                                               selector: #selector(self.threeSecondsLater),
-                                                               userInfo: nil,
-                                                               repeats: false)
-            } else {
-                timer = NSTimer.scheduledTimerWithTimeInterval(5.0,
+        
+            timer = NSTimer.scheduledTimerWithTimeInterval(5.0,
                                                            target: self,
                                                            selector: #selector(self.threeSecondsLater),
                                                            userInfo: nil,
                                                        repeats: false)
             }
-        }
+
     }
     
     func threeSecondsLater() {

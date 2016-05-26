@@ -16,6 +16,10 @@ class Composition: NSObject {
         let compositionVideoTrack: AVMutableCompositionTrack = mutableComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
         let compositionAudioTrack: AVMutableCompositionTrack = mutableComposition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
         var insertTime = kCMTimeZero
+        var naturalSize1 = CGSizeZero
+        var naturalSize2 = CGSizeZero
+        var naturalSize3 = CGSizeZero
+        
         for urlstr in urls {
             let url: NSURL = NSURL.fileURLWithPath(urlstr)
             let asset = AVURLAsset(URL: url, options: nil)
@@ -26,7 +30,13 @@ class Composition: NSObject {
             let assetTrackAudio:AVAssetTrack = audios[0] as AVAssetTrack
             try! compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,asset.duration), ofTrack: assetTrackAudio, atTime: insertTime)
             insertTime = CMTimeAdd(insertTime, asset.duration)
+            
+            let transform: CGAffineTransform = assetTrack.preferredTransform
+            let isVideoAssetPortrait: Bool = (transform.a == 0 && transform.d == 0 && (transform.b == 1.0 || transform.b == -1.0) && (transform.c == 1.0 || transform.c == -1.0))
+            print(isVideoAssetPortrait)
         }
+        
+        
         let assetExportSession: AVAssetExportSession = AVAssetExportSession(asset: mutableComposition, presetName: AVAssetExportPreset1280x720)!
         
         let composedMovieDirectory = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]

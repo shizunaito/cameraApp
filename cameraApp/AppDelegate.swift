@@ -14,7 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var introUrl: String?
+    var title: String?
+    var partNumber: String?
+    var pointOne: String?
+    var pointTwo: String?
+    var pointThree: String?
+
     var url1: String?
     var url2: String?
     var url3: String?

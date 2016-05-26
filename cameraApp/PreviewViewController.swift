@@ -12,6 +12,9 @@ import MediaPlayer
 
 class PreviewViewController: UIViewController {
     
+    @IBOutlet weak var LoadLabel: UILabel!
+    
+    
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var createCount: Int = 0
@@ -25,14 +28,17 @@ class PreviewViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if self.createCount == 0 {
+            
+            self.LoadLabel.text = "Loading..."
 
-            let path0 = self.appDelegate.introUrl
             let path1 = self.appDelegate.url1
             let path2 = self.appDelegate.url2
             let path3 = self.appDelegate.url3
+            let pathEnding = NSBundle.mainBundle().pathForResource("ending", ofType: "mp4")
+            let pathLogo = NSBundle.mainBundle().pathForResource("logo", ofType: "mp4")
 
             self.createCount = 1
-            Composition.run([path0!, path1!, path2!, path3!], handler: {(url: NSURL) -> Void in
+            Composition.run([path1!, path2!, path3!, pathEnding!, pathLogo!], handler: {(url: NSURL) -> Void in
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     let vc: MPMoviePlayerViewController = MPMoviePlayerViewController(contentURL: url)
                     self.presentMoviePlayerViewControllerAnimated(vc)
@@ -40,6 +46,8 @@ class PreviewViewController: UIViewController {
             })
 
         } else {
+            self.LoadLabel.text = ""
+            
             let alertController = UIAlertController(title: "保存完了", message: "動画を保存しました", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "はい", style: .Default,
                                               handler:{

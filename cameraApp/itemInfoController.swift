@@ -10,6 +10,8 @@ import UIKit
 
 class itemInfoController: UIViewController,UITextFieldDelegate {
     
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var textfield1: UITextField!
     @IBOutlet weak var textfield2: UITextField!
     
