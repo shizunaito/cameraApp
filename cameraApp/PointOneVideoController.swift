@@ -13,6 +13,9 @@ class ViewController5: UIViewController {
     
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
 
+    @IBOutlet weak var oneVideoCheckImg: UIImageView!
+    
+    
     @IBAction func video1ButtonClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let videoVC = storyboard.instantiateViewControllerWithIdentifier("VideoViewController") as! VideoViewController
@@ -35,8 +38,12 @@ class ViewController5: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
-        print(appDelegate.url1)
+        
+        if appDelegate.url1 != nil {
+            self.oneVideoCheckImg.image = UIImage(named: "checkmark-done")
+        } else {
+            self.oneVideoCheckImg.image = UIImage(named: "checkmark")
+        }
     }
 
     override func didReceiveMemoryWarning() {

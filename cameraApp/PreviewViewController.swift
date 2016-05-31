@@ -29,6 +29,18 @@ class PreviewViewController: UIViewController {
         
         if self.createCount == 0 {
             
+            if (appDelegate.title?.isEmpty) == nil {
+                alert("商品名")
+            } else if (appDelegate.partNumber?.isEmpty) == nil {
+                alert("型番")
+            } else if (appDelegate.pointOne?.isEmpty) == nil {
+                alert("ポイント1")
+            } else if (appDelegate.pointTwo?.isEmpty) == nil {
+                alert("ポイント2")
+            } else if (appDelegate.pointThree?.isEmpty) == nil {
+                alert("ポイント3")
+            } else {
+            
             self.LoadLabel.text = "Loading..."
 
             let path1 = self.appDelegate.url1
@@ -44,6 +56,7 @@ class PreviewViewController: UIViewController {
                     self.presentMoviePlayerViewControllerAnimated(vc)
                 })
             })
+            }
 
         } else {
             self.LoadLabel.text = ""
@@ -68,6 +81,19 @@ class PreviewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func alert(st: String) {
+        let alertController = UIAlertController(title: st, message: "\(st)が正しく入力されていません。6文字以上で入力してください。", preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default,
+                                          handler:{
+                                            (action:UIAlertAction!) -> Void in
+                                            self.dismissViewControllerAnimated(true, completion: nil)
+                                
+        })
+        
+        alertController.addAction(defaultAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation

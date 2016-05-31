@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController6: UIViewController, UITextFieldDelegate {
+    
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     @IBOutlet weak var textfield: UITextField!
+    @IBOutlet weak var twoCheckImg: UIImageView!
     
     @IBAction func tapScreen(sender: AnyObject) {
+        
+        self.saveText()
         self.view.endEditing(true)
     }
     @IBAction func backbtn(sender: AnyObject) {
@@ -26,6 +31,16 @@ class ViewController6: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if appDelegate.pointTwo != nil {
+            self.twoCheckImg.image = UIImage(named: "checkmark-done")
+        } else {
+            self.twoCheckImg.image = UIImage(named: "checkmark")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,9 +48,22 @@ class ViewController6: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         // キーボードを閉じる
+        self.saveText()
         textField.resignFirstResponder()
         
         return true
+    }
+    
+    private func saveText() {
+        if (self.textfield.text?.isEmpty) != nil || self.textfield.text!.characters.count >= 6 {
+            appDelegate.pointTwo = self.textfield.text!
+            
+            if appDelegate.pointOne != nil {
+                self.twoCheckImg.image = UIImage(named: "checkmark-done")
+            } else {
+                self.twoCheckImg.image = UIImage(named: "checkmark")
+            }
+        }
     }
 
     /*

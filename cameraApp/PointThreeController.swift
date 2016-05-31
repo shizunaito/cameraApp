@@ -10,13 +10,22 @@ import UIKit
 
 class ViewController8: UIViewController,
 UITextFieldDelegate {
+    
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 
     @IBAction func tapScreen(sender: AnyObject) {
+        
+        self.saveText()
         self.view.endEditing(true)
     }
+    
+    @IBOutlet weak var threeCheckImg: UIImageView!
     @IBOutlet weak var textfield: UITextField!
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         // キーボードを閉じる
+        self.saveText()
         textField.resignFirstResponder()
         
         return true
@@ -27,6 +36,7 @@ UITextFieldDelegate {
         self.navigationController?.popViewControllerAnimated(true)
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +44,33 @@ UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if appDelegate.pointThree != nil {
+            self.threeCheckImg.image = UIImage(named: "checkmark-done")
+        } else {
+            self.threeCheckImg.image = UIImage(named: "checkmark")
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    private func saveText() {
+        if (self.textfield.text?.isEmpty) != nil || self.textfield.text!.characters.count >= 6 {
+            appDelegate.pointThree = self.textfield.text!
+            
+            if appDelegate.pointOne != nil {
+                self.threeCheckImg.image = UIImage(named: "checkmark-done")
+            } else {
+                self.threeCheckImg.image = UIImage(named: "checkmark")
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

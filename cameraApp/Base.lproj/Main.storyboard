@@ -164,7 +164,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="center-img" translatesAutoresizingMaskIntoConstraints="NO" id="n18-rB-V1O">
                                 <rect key="frame" x="27" y="37" width="266" height="435"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark-done" translatesAutoresizingMaskIntoConstraints="NO" id="m5K-ds-V5M">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="m5K-ds-V5M">
                                 <rect key="frame" x="250" y="20" width="55" height="55"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaP-m5-Irb">
@@ -219,6 +219,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nt8-ya-7eU"/>
                     <connections>
+                        <outlet property="oneCheckImg" destination="m5K-ds-V5M" id="kYk-ic-nrI"/>
                         <outlet property="textfield" destination="rcO-pG-2mX" id="0KN-0S-FH2"/>
                     </connections>
                 </viewController>
@@ -298,6 +299,9 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="nlS-Fz-JJh"/>
+                    <connections>
+                        <outlet property="oneVideoCheckImg" destination="YFc-aM-iqp" id="Z10-pE-veg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OxP-8H-Ep1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,6 +378,7 @@
                     <navigationItem key="navigationItem" id="ROp-cO-sbR"/>
                     <connections>
                         <outlet property="textfield" destination="Iux-5J-9dN" id="oip-ix-bRk"/>
+                        <outlet property="twoCheckImg" destination="9P2-VW-FBW" id="hAw-bt-eSd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbG-Dk-EcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,6 +457,9 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z6v-py-b3F"/>
+                    <connections>
+                        <outlet property="twoVideoCheckImg" destination="uMc-2n-QG4" id="YjH-NI-njU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTr-xX-vaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -528,6 +536,7 @@
                     <navigationItem key="navigationItem" id="ggL-QH-QIb"/>
                     <connections>
                         <outlet property="textfield" destination="VQD-fP-1yy" id="hXi-Fy-575"/>
+                        <outlet property="threeCheckImg" destination="NUr-wV-A4H" id="8Mb-Bq-Yc3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wbo-9X-22F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -554,7 +563,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P61-w7-DOE">
                                 <rect key="frame" x="66" y="254" width="189" height="59"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -641,6 +650,9 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Lz-nC-Du0"/>
+                    <connections>
+                        <outlet property="threeVideoCheckImg" destination="49V-gc-sKg" id="ush-Dk-U5o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ho-uH-sEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -651,7 +663,6 @@
         <image name="camera-btn" width="105" height="105"/>
         <image name="center-img" width="455" height="739"/>
         <image name="checkmark" width="78" height="78"/>
-        <image name="checkmark-done" width="78" height="78"/>
         <image name="left-img" width="66" height="72"/>
         <image name="light-img" width="66" height="66"/>
         <image name="monostudioapp-logo" width="372" height="46"/>

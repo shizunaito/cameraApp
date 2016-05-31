@@ -17,8 +17,13 @@ class itemInfoController: UIViewController,UITextFieldDelegate {
     
     @IBAction func screentouch(sender: AnyObject) {
         self.view.endEditing(true)
+        
+        self.saveText()
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool{
+        
+        self.saveText()
         // キーボードを閉じる
         textField.resignFirstResponder()
         
@@ -45,6 +50,16 @@ class itemInfoController: UIViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    private func saveText() {
+        if (self.textfield1.text?.isEmpty) != nil || self.textfield1.text!.characters.count >= 6 {
+            appDelegate.title = self.textfield1.text!
+        }
+        
+        if (self.textfield2.text?.isEmpty) != nil || self.textfield2.text!.characters.count >= 6 {
+            appDelegate.partNumber = self.textfield2.text!
+        }
+    }
 
     /*
     // MARK: - Navigation

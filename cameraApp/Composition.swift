@@ -16,9 +16,6 @@ class Composition: NSObject {
         let compositionVideoTrack: AVMutableCompositionTrack = mutableComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
         let compositionAudioTrack: AVMutableCompositionTrack = mutableComposition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
         var insertTime = kCMTimeZero
-        var naturalSize1 = CGSizeZero
-        var naturalSize2 = CGSizeZero
-        var naturalSize3 = CGSizeZero
         
         for urlstr in urls {
             let url: NSURL = NSURL.fileURLWithPath(urlstr)
@@ -26,14 +23,17 @@ class Composition: NSObject {
             let tracks = asset.tracksWithMediaType(AVMediaTypeVideo)
             let audios = asset.tracksWithMediaType(AVMediaTypeAudio)
             let assetTrack:AVAssetTrack = tracks[0] as AVAssetTrack
+            
+            let transform: CGAffineTransform = assetTrack.preferredTransform
+            let isVideoAssetPortrait: Bool = (transform.a == 0 && transform.d == 0 && (transform.b == 1.0 || transform.b == -1.0) && (transform.c == 1.0 || transform.c == -1.0))
+            print(isVideoAssetPortrait)
+            
             try! compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,asset.duration), ofTrack: assetTrack, atTime: insertTime)
             let assetTrackAudio:AVAssetTrack = audios[0] as AVAssetTrack
             try! compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,asset.duration), ofTrack: assetTrackAudio, atTime: insertTime)
             insertTime = CMTimeAdd(insertTime, asset.duration)
             
-            let transform: CGAffineTransform = assetTrack.preferredTransform
-            let isVideoAssetPortrait: Bool = (transform.a == 0 && transform.d == 0 && (transform.b == 1.0 || transform.b == -1.0) && (transform.c == 1.0 || transform.c == -1.0))
-            print(isVideoAssetPortrait)
+            
         }
         
         
