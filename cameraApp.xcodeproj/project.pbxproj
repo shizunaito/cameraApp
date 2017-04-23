@@ -265,15 +265,18 @@
 					6052B4F21CE3289F007C504D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = CL69W4RVRB;
+						LastSwiftMigration = 0820;
 					};
 					6052B5091CE3289F007C504D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 388H3DP8J5;
+						LastSwiftMigration = 0820;
 						TestTargetID = 6052B4F21CE3289F007C504D;
 					};
 					6052B5141CE3289F007C504D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 388H3DP8J5;
+						LastSwiftMigration = 0820;
 						TestTargetID = 6052B4F21CE3289F007C504D;
 					};
 				};
@@ -493,6 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.szn.cameraApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -508,6 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.szn.cameraApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -520,6 +525,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.knj0302.cameraAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cameraApp.app/cameraApp";
 			};
 			name = Debug;
@@ -532,6 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.knj0302.cameraAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cameraApp.app/cameraApp";
 			};
 			name = Release;
@@ -543,6 +550,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.knj0302.cameraAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = cameraApp;
 			};
 			name = Debug;
@@ -554,6 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.knj0302.cameraAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = cameraApp;
 			};
 			name = Release;

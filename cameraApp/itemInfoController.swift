@@ -10,18 +10,18 @@ import UIKit
 
 class itemInfoController: UIViewController,UITextFieldDelegate {
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var textfield1: UITextField!
     @IBOutlet weak var textfield2: UITextField!
     
-    @IBAction func screentouch(sender: AnyObject) {
+    @IBAction func screentouch(_ sender: AnyObject) {
         self.view.endEditing(true)
         
         self.saveText()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         
         self.saveText()
         // キーボードを閉じる
@@ -30,9 +30,9 @@ class itemInfoController: UIViewController,UITextFieldDelegate {
         return true
     }
 
-    @IBAction func backbtn(sender: AnyObject) {
+    @IBAction func backbtn(_ sender: AnyObject) {
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -51,7 +51,7 @@ class itemInfoController: UIViewController,UITextFieldDelegate {
     }
     
     
-    private func saveText() {
+    fileprivate func saveText() {
         if (self.textfield1.text?.isEmpty) != nil || self.textfield1.text!.characters.count >= 6 {
             appDelegate.title = self.textfield1.text!
         }

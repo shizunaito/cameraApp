@@ -11,10 +11,10 @@ import UIKit
 class ViewController8: UIViewController,
 UITextFieldDelegate {
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 
-    @IBAction func tapScreen(sender: AnyObject) {
+    @IBAction func tapScreen(_ sender: AnyObject) {
         
         self.saveText()
         self.view.endEditing(true)
@@ -23,7 +23,7 @@ UITextFieldDelegate {
     @IBOutlet weak var threeCheckImg: UIImageView!
     @IBOutlet weak var textfield: UITextField!
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         // キーボードを閉じる
         self.saveText()
         textField.resignFirstResponder()
@@ -31,9 +31,9 @@ UITextFieldDelegate {
         return true
     }
     
-    @IBAction func backbtn(sender: AnyObject) {
+    @IBAction func backbtn(_ sender: AnyObject) {
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -45,7 +45,7 @@ UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if appDelegate.pointThree != nil {
@@ -60,7 +60,7 @@ UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    private func saveText() {
+    fileprivate func saveText() {
         if (self.textfield.text?.isEmpty) != nil || self.textfield.text!.characters.count >= 6 {
             appDelegate.pointThree = self.textfield.text!
             

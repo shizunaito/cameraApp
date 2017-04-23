@@ -12,12 +12,12 @@ import AssetsLibrary
 
 class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var index = 0
     
     let captureSession = AVCaptureSession()
-    let videoDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-    let audioDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeAudio)
+    let videoDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
     let fileOutput = AVCaptureMovieFileOutput()
     
     var startButton, stopButton : UIButton!
@@ -63,26 +63,26 @@ class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegat
     }
     
     func setupButton(){
-        self.startButton = UIButton(frame: CGRectMake(0,0,50,50))
-        self.startButton.backgroundColor = UIColor.redColor();
+        self.startButton = UIButton(frame: CGRect(x: 0,y: 0,width: 50,height: 50))
+        self.startButton.backgroundColor = UIColor.red;
         self.startButton.layer.masksToBounds = true
         self.startButton.layer.cornerRadius = 20.0
         self.startButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-50)
-        self.startButton.addTarget(self, action: #selector(VideoViewController.onClickStartButton(_:)), forControlEvents: .TouchUpInside)
+        self.startButton.addTarget(self, action: #selector(VideoViewController.onClickStartButton(_:)), for: .touchUpInside)
         
         
         self.view.addSubview(self.startButton);
     }
     
-    func onClickStartButton(sender: UIButton){
-        var timer:NSTimer = NSTimer()
+    func onClickStartButton(_ sender: UIButton){
+        var timer:Timer = Timer()
         
         if !self.isRecording {
             // start recording
-            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
             let documentsDirectory = paths[0] as String
             let filePath : String = "\(documentsDirectory)/video\(self.index).mp4"
-            let fileURL : NSURL = NSURL(fileURLWithPath: filePath)
+            let fileURL : URL = URL(fileURLWithPath: filePath)
             
             
             switch index {
@@ -96,12 +96,12 @@ class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegat
                 print("Index is not defined.")
             }
             
-            fileOutput.startRecordingToOutputFileURL(fileURL, recordingDelegate: self)
+            fileOutput.startRecording(toOutputFileURL: fileURL, recordingDelegate: self)
             
             self.isRecording = true
-            self.changeButtonColor(self.startButton, color: UIColor.grayColor())
+            self.changeButtonColor(self.startButton, color: UIColor.gray)
         
-            timer = NSTimer.scheduledTimerWithTimeInterval(5.0,
+            timer = Timer.scheduledTimer(timeInterval: 5.0,
                                                            target: self,
                                                            selector: #selector(self.threeSecondsLater),
                                                            userInfo: nil,
@@ -116,21 +116,21 @@ class VideoViewController: UIViewController, AVCaptureFileOutputRecordingDelegat
             fileOutput.stopRecording()
             
             self.isRecording = false
-            self.changeButtonColor(self.startButton, color: UIColor.redColor())
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.changeButtonColor(self.startButton, color: UIColor.red)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
-    func changeButtonColor(target: UIButton, color: UIColor){
+    func changeButtonColor(_ target: UIButton, color: UIColor){
         target.backgroundColor = color
     }
     
-    func captureOutput(captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAtURL fileURL: NSURL!, fromConnections connections: [AnyObject]!) {
+    func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
     }
     
-    func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
+    func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         let assetsLib = ALAssetsLibrary()
-        assetsLib.writeVideoAtPathToSavedPhotosAlbum(outputFileURL, completionBlock: nil)
+        assetsLib.writeVideoAtPath(toSavedPhotosAlbum: outputFileURL, completionBlock: nil)
     }
     
     

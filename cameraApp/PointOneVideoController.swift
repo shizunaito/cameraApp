@@ -11,23 +11,23 @@ import UIKit
 class ViewController5: UIViewController {
     
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
 
     @IBOutlet weak var oneVideoCheckImg: UIImageView!
     
     
-    @IBAction func video1ButtonClicked(sender: AnyObject) {
+    @IBAction func video1ButtonClicked(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let videoVC = storyboard.instantiateViewControllerWithIdentifier("VideoViewController") as! VideoViewController
+        let videoVC = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as! VideoViewController
         
         videoVC.index = 1
-        self.presentViewController(videoVC, animated: true, completion: nil)
+        self.present(videoVC, animated: true, completion: nil)
         
     }
     
-    @IBAction func backbtn(sender: AnyObject) {
+    @IBAction func backbtn(_ sender: AnyObject) {
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class ViewController5: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if appDelegate.url1 != nil {

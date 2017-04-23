@@ -15,7 +15,7 @@ class PreviewViewController: UIViewController {
     @IBOutlet weak var LoadLabel: UILabel!
     
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var createCount: Int = 0
     
@@ -24,7 +24,7 @@ class PreviewViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if self.createCount == 0 {
@@ -46,12 +46,12 @@ class PreviewViewController: UIViewController {
             let path1 = self.appDelegate.url1
             let path2 = self.appDelegate.url2
             let path3 = self.appDelegate.url3
-            let pathEnding = NSBundle.mainBundle().pathForResource("ending", ofType: "mp4")
-            let pathLogo = NSBundle.mainBundle().pathForResource("logo", ofType: "mp4")
+            let pathEnding = Bundle.main.path(forResource: "ending", ofType: "mp4")
+            let pathLogo = Bundle.main.path(forResource: "logo", ofType: "mp4")
 
             self.createCount = 1
-            Composition.run([path1!, path2!, path3!, pathEnding!, pathLogo!], handler: {(url: NSURL) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+            Composition.run([path1!, path2!, path3!, pathEnding!, pathLogo!], handler: {(url: URL) -> Void in
+                DispatchQueue.main.async(execute: {() -> Void in
                     let vc: MPMoviePlayerViewController = MPMoviePlayerViewController(contentURL: url)
                     self.presentMoviePlayerViewControllerAnimated(vc)
                 })
@@ -61,16 +61,16 @@ class PreviewViewController: UIViewController {
         } else {
             self.LoadLabel.text = ""
             
-            let alertController = UIAlertController(title: "保存完了", message: "動画を保存しました", preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "はい", style: .Default,
+            let alertController = UIAlertController(title: "保存完了", message: "動画を保存しました", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "はい", style: .default,
                                               handler:{
                                                 (action:UIAlertAction!) -> Void in
-                                                self.performSegueWithIdentifier("restart",sender: nil)
+                                                self.performSegue(withIdentifier: "restart",sender: nil)
 
             })
             
             alertController.addAction(defaultAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
             
         }
         print("再生完了")
@@ -81,17 +81,17 @@ class PreviewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func alert(st: String) {
-        let alertController = UIAlertController(title: st, message: "\(st)が正しく入力されていません。6文字以上で入力してください。", preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default,
+    fileprivate func alert(_ st: String) {
+        let alertController = UIAlertController(title: st, message: "\(st)が正しく入力されていません。6文字以上で入力してください。", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default,
                                           handler:{
                                             (action:UIAlertAction!) -> Void in
-                                            self.dismissViewControllerAnimated(true, completion: nil)
+                                            self.dismiss(animated: true, completion: nil)
                                 
         })
         
         alertController.addAction(defaultAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
     }
 
