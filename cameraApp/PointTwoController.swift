@@ -1,10 +1,4 @@
-//
-//  ViewController6.swift
-//  cameraApp
-//
-//  Created by 塚原健司 on 2016/05/19.
-//  Copyright © 2016年 knj0302. All rights reserved.
-//
+//  Point2Controller.swift
 
 import UIKit
 

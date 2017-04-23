@@ -10,7 +10,6 @@
 		05128A641CF0174000EA4EC2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05128A631CF0174000EA4EC2 /* VideoViewController.swift */; };
 		05128A691CF0241000EA4EC2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05128A681CF0241000EA4EC2 /* PreviewViewController.swift */; };
 		0525F95F1CF2D0D300AF6BD1 /* logo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0525F95D1CF2D0AB00AF6BD1 /* logo.mp4 */; };
-		0525F9601CF2D0D900AF6BD1 /* ending.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0525F95C1CF2D0A200AF6BD1 /* ending.mp4 */; };
 		055272CB1CF1B83100A9BC02 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055272CA1CF1B83100A9BC02 /* Composition.swift */; };
 		600BC4EA1CED6F1A00581F5F /* itemInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4E91CED6F1A00581F5F /* itemInfoController.swift */; };
 		600BC4EE1CED79B500581F5F /* PointOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC4ED1CED79B500581F5F /* PointOneController.swift */; };
@@ -49,7 +48,6 @@
 /* Begin PBXFileReference section */
 		05128A631CF0174000EA4EC2 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		05128A681CF0241000EA4EC2 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		0525F95C1CF2D0A200AF6BD1 /* ending.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ending.mp4; sourceTree = "<group>"; };
 		0525F95D1CF2D0AB00AF6BD1 /* logo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.mp4; sourceTree = "<group>"; };
 		055272CA1CF1B83100A9BC02 /* Composition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		600BC4E91CED6F1A00581F5F /* itemInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemInfoController.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				0525F95D1CF2D0AB00AF6BD1 /* logo.mp4 */,
-				0525F95C1CF2D0A200AF6BD1 /* ending.mp4 */,
 			);
 			name = Movies;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0525F9601CF2D0D900AF6BD1 /* ending.mp4 in Resources */,
 				0525F95F1CF2D0D300AF6BD1 /* logo.mp4 in Resources */,
 				6052B5041CE3289F007C504D /* LaunchScreen.storyboard in Resources */,
 				6052B5011CE3289F007C504D /* Assets.xcassets in Resources */,

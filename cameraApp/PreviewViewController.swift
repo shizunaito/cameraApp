@@ -1,10 +1,4 @@
-//
 //  PreviewViewController.swift
-//  cameraApp
-//
-//  Created by 伊藤静那(Ito Shizuna) on 2016/05/21.
-//  Copyright © 2016年 knj0302. All rights reserved.
-//
 
 import UIKit
 import AVFoundation
