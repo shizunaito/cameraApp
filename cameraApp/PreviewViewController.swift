@@ -46,11 +46,10 @@ class PreviewViewController: UIViewController {
             let path1 = self.appDelegate.url1
             let path2 = self.appDelegate.url2
             let path3 = self.appDelegate.url3
-            let pathEnding = Bundle.main.path(forResource: "ending", ofType: "mp4")
             let pathLogo = Bundle.main.path(forResource: "logo", ofType: "mp4")
 
             self.createCount = 1
-            Composition.run([path1!, path2!, path3!, pathEnding!, pathLogo!], handler: {(url: URL) -> Void in
+            Composition.run([path1!, path2!, path3!, pathLogo!], handler: {(url: URL) -> Void in
                 DispatchQueue.main.async(execute: {() -> Void in
                     let vc: MPMoviePlayerViewController = MPMoviePlayerViewController(contentURL: url)
                     self.presentMoviePlayerViewControllerAnimated(vc)
